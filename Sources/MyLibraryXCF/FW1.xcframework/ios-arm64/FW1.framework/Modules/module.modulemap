@@ -1,0 +1,11 @@
+framework module FW1 {
+  umbrella header "FW1.h"
+
+  export *
+  module * { export * }
+}
+
+module FW1.Swift {
+    header "FW1-Swift.h"
+    requires objc
+}
