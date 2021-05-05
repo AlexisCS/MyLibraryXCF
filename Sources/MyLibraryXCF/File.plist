@@ -1,0 +1,6 @@
+{
+	FirebaseApiKey = 12312423545;
+	dev = url;
+	qa = url;
+	release = url;
+}
