@@ -14,6 +14,9 @@ let package = Package(
             name: "Frameworks",
             targets: ["FW1"]
         ),
+        .library(name: "Config",
+                 targets: ["MyLibraryXCF"]
+        )
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -22,8 +25,16 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .binaryTarget(name: "FW1",
-                      path: "./Sources/MyLibraryXCF/FW1.xcframework"
+        .target(
+            name: "MyLibraryXCF",
+            exclude: ["FW1.xcframework"],
+            resources: [
+                .process("Resources")
+            ]
+        ),
+        .binaryTarget(
+            name: "FW1",
+            path: "./Sources/MyLibraryXCF/FW1.xcframework"
         ),
     ]
 )
